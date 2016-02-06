@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+
+
+<div>
+		<%= image_tag @product.picture %>	
+</div>
+
+
 <p>
   <strong>Name:</strong>
   <%= @product.name %>
@@ -14,10 +21,6 @@
   <%= @product.condition %>
 </p>
 
-<p>
-  <strong>Picture:</strong>
-  <%= @product.picture %>
-</p>
 
 <p>
   <strong>Price:</strong>
