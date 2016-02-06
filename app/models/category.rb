@@ -4,7 +4,5 @@ class Category < ActiveRecord::Base
 
 
 
-def initialize
- @cat_name = []
-end
+
 end
