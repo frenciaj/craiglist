@@ -3,6 +3,8 @@ class Product < ActiveRecord::Base
   validates :price, numericality: {only_integer: true, greater_than: 0}
 
   belongs_to :user
+  belongs_to :categories
+  belongs_to :conditions
 
   def formatted_price
   if price % 100 == 0
