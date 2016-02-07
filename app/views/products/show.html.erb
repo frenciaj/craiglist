@@ -3,7 +3,7 @@
 
 
 <div>
-		<%= image_tag @product.picture %>	
+		<%= image_tag @product.picture %>
 </div>
 
 
@@ -11,7 +11,6 @@
   <strong>Name:</strong>
   <%= @product.name %>
 </p>
-
 <p>
   <strong>Description:</strong>
   <%= @product.description %>
@@ -21,11 +20,16 @@
   <%= @product.condition %>
 </p>
 
-
+<p>
+  <strong>Seller Email:</strong>
+  <%= @product.user.email %>
+</p>
 <p>
   <strong>Price:</strong>
   <%= @product.formatted_price %>
 </p>
-
+<% if @product.user == current_user %>
 <%= link_to 'Edit', edit_product_path(@product) %> |
+<%end%>
+
 <%= link_to 'Back', products_path %>

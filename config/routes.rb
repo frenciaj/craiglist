@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
   root 'landing#index'
   get 'landing' => 'landing#index'
 
   resources :categories
   resources :products
-  resources :users
+  # resources :users
   get 'signup'  => 'users#new'
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
