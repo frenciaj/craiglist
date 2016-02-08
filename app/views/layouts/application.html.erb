@@ -2,6 +2,12 @@
 <html>
 <head>
   <title>Craiglist</title>
+  <!-- Bootstrap Core CSS -->
+  <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="stylesheets/shop-homepage.css" rel="stylesheet">
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -15,6 +21,7 @@
   <%= link_to "Sign Up", new_user_registration_path %>
   <%= link_to "Sign In", new_user_session_path %>
   <% end %>
+  <%= link_to "Search", search_path %>
 <%= yield %>
 
 </body>

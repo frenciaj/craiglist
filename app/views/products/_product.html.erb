@@ -1,0 +1,13 @@
+<section text-align= "left">
+  <p><%= image_tag product.picture %></p>
+  <h3><%= link_to product.name, product %></h3>
+  <p>description: <%= product.description %>
+    <p>Condition: <%= product.condition %></p>
+    <p>Category: <%= Category.where(id: product.category_id).first.name %></p>
+    <p>Price: <%= product.formatted_price %></p>
+    <% if product.user == current_user %>
+    <p><%= link_to 'Edit', edit_product_path(product) %></p>
+    <p><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <%end%>
+    <br>
+  </section>

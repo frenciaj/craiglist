@@ -2,3 +2,9 @@
 <p>Find me in app/views/landing/index.html.erb</p>
 
 <a href= "/products/new" alt="#"><h2>Sell Something</h2></a>
+
+<% Category.all.each do |category| %>
+  <h3><%= category.name %></h3>
+  <%= render partial: 'products/product', collection: category.products %>
+
+  <% end %>

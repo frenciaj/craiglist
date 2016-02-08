@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   # resources :users
   get 'signup'  => 'users#new'
   resources :users
+  get 'search' => 'landing#search', as: 'search'
+  get 'search_results' => 'landing#search_results', as: 'search_results'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
