@@ -1,0 +1,17 @@
+<% Category.all.each do |category| %>
+  <h3><%= category.name %></h3>
+  <%= render partial: 'products/product', collection: category.products %>
+
+  <% end %>
+
+
+
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+  <% if user_signed_in? %>
+  <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+  <%= link_to "Sign Up", new_user_registration_path %>
+  <%= link_to "Sign In", new_user_session_path %>
+  <% end %>
+  <%= link_to "Search", search_path %>
