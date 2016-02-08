@@ -2,3 +2,19 @@
 <p>Find me in app/views/landing/index.html.erb</p>
 
 <a href= "/products/new" alt="#"><h2>Sell Something</h2></a>
+
+<div class="grid">
+
+                 <% Product.all.each do |pic| %>
+                 <figure class="effect-lexi">
+                 <%= image_tag pic.picture, height: '293', width: '480' %>
+                   <figcaption>
+                     <h2><%= link_to pic.name, pic%></h2>
+                     <p><%= pic.description %><br><%= link_to pic.formatted_price, pic %></p>
+                     <!-- <p><%= link_to pic.formatted_price, pic %></p> -->
+
+                   </figcaption>
+                 </figure>
+                 <%end%>
+
+               </div>

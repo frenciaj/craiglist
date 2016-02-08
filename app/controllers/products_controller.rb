@@ -8,6 +8,10 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def categories
+    @categories = Category.order(:name)
+end
+
   # GET /products/1
   # GET /products/1.json
   def show

@@ -1,9 +1,17 @@
 <p id="notice"><%= notice %></p>
+<div class="grid">
+<% @category.products.each do |product| %>
+<figure class="effect-lexi">
+<%= image_tag product.picture, height: '293', width: '480' %>
+  <figcaption>
+    <h2><%= link_to product.name, product%></h2>
+    <p><%= product.description %><br><%= link_to product.formatted_price, product %></p>
 
-<p>
-  <strong>Type:</strong>
-  <%= @category.name %>
-</p>
+  </figcaption>
+</figure>
+<%end%>
+
+</div>
 
 <%= link_to 'Edit', edit_category_path(@category) %> |
 <%= link_to 'Back', categories_path %>
