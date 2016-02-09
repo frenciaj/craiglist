@@ -10,65 +10,79 @@
   <meta name="author" content="">
 
   <title>Wynbay.com</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="">
+
+  <!-- Bootstrap Core CSS -->
+
+  <!-- Custom CSS -->
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
 </head>
 
 <body>
-  <div class="wrapper">
+    <div id="wrapper">
+        <div id="header">
+            <p>This is the Header</p>
+        </div>
+        <div id="navigation">
+          <ul id="menu-bar">
+ <li class="active"><%=link_to 'Home', landing_path%></li>
+ <li><a href="#">Categories</a>
+  <ul>
+    <% Category.order(:name).each do |category| %>
+
+   <li><%=link_to category.name, category%></li>
+   <%end%>
+  </ul>
+ </li>
+ <li class="search-form"><%= form_tag search_results_path, method: 'get' do %> <!-- search bar -->
+   <%= text_field_tag :search_keywords %>
+   <%= submit_tag "Search" %>
+   <% end %></li>
+
+<li><p></p></li>
+
+<li><p></p></li>
+<li><p></p></li>
+<li><p></p></li>
+<li><p></p></li>
+<li><p></p></li>
+<li><p></p></li>
+<li><p></p></li>
+<li><p></p></li>
+<li><p></p></li>
+<li><p></p></li>
+<li><p></p></li>
 
 
-  </div>
-    <div class="header">
-      <ul id="menu-bar">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Categories</a>
-          <ul>
-            <li><a href="#">Categories Sub Menu 1</a></li>
-            <li><a href="#">Categories Sub Menu 2</a></li>
-            <li><a href="#">Categories Sub Menu 3</a></li>
-            <li><a href="#">Categories Sub Menu 4</a></li>
-          </ul>
-        </li>
-
-
-
-        <li>
-          <%= form_tag search_results_path, method: 'get' do %> <!-- search bar -->
-          <%= text_field_tag :search_keywords %>
-          <%= submit_tag "Search" %>
-          <% end %>
-        </li>
-        <% if user_signed_in? %>
-        <li>
-          <%= link_to "New Listing", new_product_path %>
-        </li>
-        <li>
-          <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
-          <% else %>
-        </li>
-      </li>
-      <li><%= link_to "Log In", new_user_session_path %>
-      </li>
-      <li><%= link_to "Sign Up", new_user_registration_path %>
-        <% end %>
-      </li>
-
-    </ul>
-  </div>
-
-
-<%= yield %>
-
-<hr>
-<div class="footer">
-  <footer>
-    <p>Copyright &copy; Wynbay 2016</p>
-  </footer>
-</div>
-
-
+   <% if user_signed_in? %>
+ <li><%= link_to "New Product", new_product_path %></li>
+ <li><%= link_to "Log out", destroy_user_session_path, :method => :delete %></li>
+ <% else %>
+ <li><%= link_to "Sign In", new_user_session_path %></li>
+ <li><%= link_to "Sign Up", new_user_registration_path %></li>
+<%end%>
+</ul>
+        </div>
+        <div id="contentliquid"><div id="content">
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+      <%= yield %>
+       </div></div>
+        <div id="footer">
+            <p>This is the Footer</p>
+        </div>
+    </div>
 </body>
 </html>
